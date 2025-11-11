@@ -12,6 +12,20 @@ const Display = ({ text, value }) => (
   </div>
 );
 
+const Statics = (props) => {
+  return (
+    <>
+      <Header header={"statics"} />
+      <Display text={"good"} value={props.good || 0} />
+      <Display text={"neutral"} value={props.neutral || 0} />
+      <Display text={"bad"} value={props.bad || 0} />
+      <Display text={"all"} value={props.all || 0} />
+      <Display text={"average"} value={props.average || 0} />
+      <Display text={"positive"} value={props.positive || 0} />
+    </>
+  );
+};
+
 const App = () => {
   // guarda los clics de cada botón en su propio estado
   const [good, setGood] = useState(0);
@@ -49,13 +63,14 @@ const App = () => {
       <Button clickHandler={handleGood} text={"good"} />
       <Button clickHandler={handleNeutral} text={"neutral"} />
       <Button clickHandler={handleBad} text={"bad"} />
-      <Header header={"statics"} />
-      <Display text={"good"} value={good} />
-      <Display text={"neutral"} value={neutral} />
-      <Display text={"bad"} value={bad} />
-      <Display text={"all"} value={all} />
-      <Display text={"average"} value={average || 0} />
-      <Display text={"positive"} value={positive || 0} />
+      <Statics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        all={all}
+        average={average}
+        positive={positive}
+      />
     </div>
   );
 };
