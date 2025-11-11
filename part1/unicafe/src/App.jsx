@@ -13,15 +13,24 @@ const Display = ({ text, value }) => (
 );
 
 const Statics = (props) => {
+  if (props.all > 0) {
+    return (
+      <>
+        <Header header={"statics"} />
+        <Display text={"good"} value={props.good || 0} />
+        <Display text={"neutral"} value={props.neutral || 0} />
+        <Display text={"bad"} value={props.bad || 0} />
+        <Display text={"all"} value={props.all || 0} />
+        <Display text={"average"} value={props.average || 0} />
+        <Display text={"positive"} value={props.positive || 0} />
+      </>
+    );
+  }
+
   return (
     <>
       <Header header={"statics"} />
-      <Display text={"good"} value={props.good || 0} />
-      <Display text={"neutral"} value={props.neutral || 0} />
-      <Display text={"bad"} value={props.bad || 0} />
-      <Display text={"all"} value={props.all || 0} />
-      <Display text={"average"} value={props.average || 0} />
-      <Display text={"positive"} value={props.positive || 0} />
+      <div>No feedback given</div>
     </>
   );
 };
