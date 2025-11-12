@@ -6,10 +6,11 @@ const Button = ({ clickHandler, text }) => (
   <button onClick={clickHandler}>{text}</button>
 );
 
-const Display = ({ text, value }) => (
-  <div>
-    {text} {value}
-  </div>
+const StatisticLine = ({ text, value }) => (
+  <tr>
+    <td>{text}</td>
+    <td>{value}</td>
+  </tr>
 );
 
 const Statics = (props) => {
@@ -17,12 +18,16 @@ const Statics = (props) => {
     return (
       <>
         <Header header={"statics"} />
-        <Display text={"good"} value={props.good || 0} />
-        <Display text={"neutral"} value={props.neutral || 0} />
-        <Display text={"bad"} value={props.bad || 0} />
-        <Display text={"all"} value={props.all || 0} />
-        <Display text={"average"} value={props.average || 0} />
-        <Display text={"positive"} value={props.positive || 0} />
+        <table>
+          <tbody>
+            <StatisticLine text={"good"} value={props.good || 0} />
+            <StatisticLine text={"neutral"} value={props.neutral || 0} />
+            <StatisticLine text={"bad"} value={props.bad || 0} />
+            <StatisticLine text={"all"} value={props.all || 0} />
+            <StatisticLine text={"average"} value={props.average || 0} />
+            <StatisticLine text={"positive"} value={props.positive || 0} />
+          </tbody>
+        </table>
       </>
     );
   }
